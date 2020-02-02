@@ -1,0 +1,35 @@
+server:
+  port: 19999
+  ssl:
+    key-store: xxx
+    key-store-password: xxx
+    keyStoreType: xxx
+web.page-path: static/
+spring:
+  mvc:
+    view:
+      prefix: /view/
+      suffix: .html
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.page-path}
+  datasource: ## mysql配置
+    url: jdbc:mysql://127.0.0.1:3306/memo_card?useAffectedRows=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: super
+    password: super
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      initSQL: SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci
+mybatis:
+  type-aliases-package: com.cloverat.domain
+  mapper-locations: mapper/*.xml
+logging:
+  level:
+    com.cmit.dao: DEBUG
+  path: C://MemoCard//log
+wx:
+  appId: xxx
+  secret: xxx
+qq:
+  appId: xxx
+  secret: xxx
